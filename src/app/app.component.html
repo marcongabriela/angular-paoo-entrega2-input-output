@@ -6,25 +6,64 @@
   </div>
 
   <!-- event binding -OUTPUT -->
-    <app-curso-cadastro (cursoAdicionado)="onAdicionarCurso($event)"></app-curso-cadastro>
+
 
     <div class="row">
 
-      <div class="col-4" *ngFor="let c of cursosadicionados">
-        <!-- property binding -->
-        <app-curso-cartao [nomecurso]="c" ></app-curso-cartao>
-      </div>
+      <!-- <div class="col-4" *ngFor="let c of cursosadicionados">
+        <app-curso-cartao [cursos]="c" ></app-curso-cartao>
+      </div> -->
 
     </div>
 
 
 
-<div class="espace">
-<p>Cursos oferecidos pela Fatec Ipiranga</p>
 
-</div>
+    <!--  -->
 
-    <div class="row">
+    <div class="container">
+      <div [hidden]="exibirAluno">
+        <div class="container">
+          <div class="row">
+
+          </div><p>Cursos oferecidos pela Fatec Ipiranga:</p>
+          <div class="row">
+
+        <!-- property binding -->
+
+             <div class="col-4" *ngFor="let ca of cursos">
+              <app-curso-cartao [curso]="ca"></app-curso-cartao>
+            </div>
+
+             <div class="row">
+               <div class="col-8">
+                <app-curso-cadastro (cursoAdicionado)="onAdicionarCurso($event)"></app-curso-cadastro>
+              </div>
+
+
+             <div class="col-4">
+              <button class="btn btn-info" (click)="exibirPagina()" >Cadastrar Aluno</button>
+             </div>
+            </div>
+      </div>
+      </div>
+      <div [hidden]="exibirAluno">
+        <app-curso-cadastro-aluno [curso]="cursos" ></app-curso-cadastro-aluno>
+        <div class="row">
+          <!-- <div class="col-4">
+            <label for="exbirCursos">Voltar para Cursos</label>
+            <button class="btn btn-secondary form-control" (click)="exibirPagina()">Voltar para cursos </button>
+          </div> -->
+        </div>
+      </div>
+    </div>
+<!--  -->
+
+
+
+
+
+    <!-- <div class="row">
       <table class="table table-hover table-stripped">
         <thead>
           <tr>
@@ -54,4 +93,4 @@
   <td>EAD – Ensino à distância</td>
 </tr>
 
-
+ -->

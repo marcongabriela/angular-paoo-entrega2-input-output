@@ -7,5 +7,14 @@ import { Component, Input } from '@angular/core';
 })
 export class CursoCartaoComponent {
 
- @Input()nomecurso;
+ @Input()curso;
+
+ obterCursoEstilo(){
+  return{
+    'DemaisCursos' : this.curso.nomecurso != 'Análise e Desenvolvimento de Sistemas',
+    'estiloADS' : this.curso.nomecurso === 'Análise e Desenvolvimento de Sistemas'
+
+  }
+ }
+
 }

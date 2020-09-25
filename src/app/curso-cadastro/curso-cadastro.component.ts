@@ -6,14 +6,25 @@ import { Component, Input,Output,EventEmitter } from '@angular/core';
   styleUrls: ['./curso-cadastro.component.css']
 })
 export class CursoCadastroComponent  {
-
+  @Input() curso;
   @Output() cursoAdicionado = new EventEmitter();
 
-  adicionar (curso){
-    const listacurso = {
-      curso: curso,
+
+  adicionar(nomecurso,horario){
+    const curso = {
+      curso: nomecurso,
+      horario: horario
 
     };
-    this.cursoAdicionado.emit(listacurso);
+    this.cursoAdicionado.emit(curso);
+  }
+
+
+  estiloBotaoCadastro(){
+    return{
+        borderRadius: '12px',
+        backgroundColor:'#20b2aa',
+        borderStyle: 'none'
+    }
   }
 }

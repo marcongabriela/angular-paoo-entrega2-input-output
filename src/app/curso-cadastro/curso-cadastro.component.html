@@ -2,18 +2,19 @@
 
   <div class="form-group col-md-6">
     <label for="cursoInput">Digite o curso desejado para adicioná-lo</label>
-    <input type="text" class="form-control" id="cursoInput" #cursoInput>
+    <input type="text" class="form-control" id="nomecursoInput" #nomecursoInput>
   </div>
 
-  <!-- <div class="form-group col-md-6 mb-2">
-    <label for="idadeInput">Idade</label>
-    <input type="text" class="form-control" id="idadeInput" #idadeInput>
-  </div> -->
+ <div class="form-group col-md-6 mb-2">
+    <label for="horarioInput">Horário</label>
+    <input type="text" class="form-control" id="horarioInput" #horarioInput>
+  </div>
 
 </div>
 
 <div class="row">
-  <button class="btn btn-primary btn-block mt-3" (click)="adicionar(cursoInput.value)">
+  <button [ngStyle] = "estiloBotaoCadastro()" class="btn btn-primary btn-block mt-3"
+  (click)="adicionar(nomecursoInput.value, horarioInput.value)" type="submit">
     Adicionar
   </button>
 </div>

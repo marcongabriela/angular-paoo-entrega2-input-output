@@ -1,0 +1,52 @@
+<div class="container">
+  <p>Cadastro um novo aluno: </p>
+  <form >
+    <div class="row">
+      <div class="form-group col-8">
+        <label for="nomeInput">Nome</label>
+        <input type="text" placeholder="Nome Sobrenome" class="form-control p-4" #nomeInput>
+      </div>
+      <div class="form-group col-4">
+        <label for="idadeInput">idade</label>
+        <input type="text" placeholder="Idade" class="form-control p-4" #idadeInput>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-12">
+        <label for="emailInput">Email</label>
+        <input type="text" placeholder="email@exemplo.com" class="form-control p-4" #emailInput>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-8">
+        <label for="cursoInput">Curso</label>
+        <select name="" id="cursoInput" class="form-control" #cursoInput>
+        <option *ngFor="let ca of curso">{{ca.curso}} - {{ca.horario}}</option>
+        </select>
+        </div>
+      <div class="col-4">
+        <label for="confirmarButton">Cadastrar Aluno</label>
+        <button class="btn btn-info form-control" (click)="onAdicionarAluno(nomeInput.value,idadeInput.value,emailInput.value,cursoInput.value)">Confirmar</button>
+      </div>
+    </div>
+
+
+  </form>
+  <p>Alunos Cadastrados</p>
+  <div class="col-8">
+    <div class="col-10 p-0 m-1" *ngFor="let item of alunos">
+      <div class="card-header">
+        Aluno
+      </div>
+      <div class="card-body" >
+        <div class="card-text">
+          <p>Nome: {{item.name}}</p>
+          <p>Email: {{item.email}}</p>
+          <p>Idade: {{item.idade}}</p>
+          <p>Curso: {{item.curso}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
